@@ -11,7 +11,10 @@ import 'firebase/firestore'
 
 Vue.use(VueRouter)
 
-  const routes = [
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes: [
   {
     path: '/',
     name: 'Home',
@@ -35,7 +38,7 @@ Vue.use(VueRouter)
     name: 'Admin',
     component: Admin,
     meta: {
-      requiresAuth: true
+      requiresAuth: true,
     }
   },
   {
@@ -43,7 +46,7 @@ Vue.use(VueRouter)
     name: 'AddNew',
     component: AddNewItems,
     meta: {
-      requiresAuth: true
+      requiresAuth: true,
     }
   },
   {
@@ -55,19 +58,14 @@ Vue.use(VueRouter)
     path: '*',
     redirect: '/',
   },
-]
+],
+});
 
 router.beforeEach((to, from, next) => {
   const currentUser = firebase.auth().currentUser;
-  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-  if(requiresAuth && !currentUser) next('Login');
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+  if (requiresAuth && !currentUser) next('login');
   else next();
-})
+});
 
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
-})
-
-export default router
+export default router;
