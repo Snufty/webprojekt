@@ -1,5 +1,9 @@
 <template>
-  <v-container>
+  <v-container class="pa-0">
+    <v-row no-gutters>
+      <v-col> hello </v-col>
+    </v-row>
+    <!--
     <v-row align-center class="info_box">
       <v-col cols="12" xs="12" md="3" offset-sm="9">
         <h1>Bagel Shop</h1>
@@ -31,6 +35,7 @@
         </div>
       </v-col>
     </v-row>
+    -->
   </v-container>
 </template>
 
@@ -43,6 +48,7 @@ export default {
 </script>
 
 <style lang="scss">
+/*
 .info_box .col-12 h1 {
   @include infobox_mixin(
     5px,
@@ -65,4 +71,5 @@ export default {
 .row:first-child {
   height: 25vh;
 }
+*/
 </style>
