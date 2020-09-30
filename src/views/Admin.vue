@@ -1,17 +1,23 @@
 <template>
   <v-container>
     <v-row no-gutters>
-      <v-col offset-md="1" md="5">
-        <h1>Menu Items</h1>
-        <v-btn color="orange" outlined small text to="/AddNew">Add New Item</v-btn>
+      <v-col>
+        <h1 id="header">My Programs</h1>
+        <v-btn outlined color="hvid" class="mt-2 mb-2" text to="/AddNew"
+          >Add New Program</v-btn
+        >
         <div id="info" class="pa-2">
           <v-simple-table id="menu_table">
             <template v-slot:default>
               <thead>
                 <tr>
-                  <th class="text-left" style="width:70%;">Name of item</th>
-                  <th class="text-left" style="width:100px;">Price</th>
-                  <th class="text-left" style="width:100px;">Add To Basket</th>
+                  <th id="th_text" class="text-left" style="width: 70%">
+                    Program Name
+                  </th>
+                  <th class="text-left" style="width: 100px"></th>
+                  <th id="th_text" class="text-left" style="width: 100px">
+                    Remove
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -19,7 +25,9 @@
                   <td>
                     <span id="td_name">{{ item.name }}</span>
                     <br />
-                    <span id="menu_item_description">{{ item.description }}</span>
+                    <span id="menu_item_description">{{
+                      item.description
+                    }}</span>
                   </td>
                   <td>{{ item.price }}</td>
                   <td>
@@ -32,10 +40,13 @@
             </template>
           </v-simple-table>
         </div>
-      </v-col>
-      <v-col offset-md="1" md="4">
-        <h1>Current Basket</h1>
-        <div id="info" class="pa-2">right</div>
+        <div id="hardcode">
+          <v-card class="mt-4">
+            <v-card-text>
+              <div>Program Name</div>
+            </v-card-text>
+          </v-card>
+        </div>
       </v-col>
     </v-row>
   </v-container>
@@ -165,5 +176,19 @@ tr td {
 
 #backet_checkout p:first-child {
   line-height: 6px;
+}
+
+.theme--light.v-data-table
+  > .v-data-table__wrapper
+  > table
+  > thead
+  > tr:last-child
+  > th {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+#header {
+  font-size: 1.5em;
 }
 </style>
