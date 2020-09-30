@@ -43,7 +43,11 @@
         <div id="hardcode">
           <v-card class="mt-4">
             <v-card-text>
-              <div>Program Name</div>
+              <div class="mb-3">Program Name</div>
+              <hr />
+              <router-link to="/Legs">
+                <div class="mt-3 font-weight-bold">Legs</div></router-link
+              >
             </v-card-text>
           </v-card>
         </div>
@@ -188,7 +192,16 @@ tr td {
   font-weight: bold;
 }
 
+.v-card__subtitle,
+.v-card__text {
+  font-size: 1.5em;
+}
+
 #header {
   font-size: 1.5em;
+}
+
+a {
+  text-decoration: none;
 }
 </style>
