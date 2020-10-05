@@ -13,16 +13,16 @@
         </div>
         <v-stepper v-model="e1">
           <v-stepper-header>
-            <v-stepper-step :complete="e1 > 1" step="1">Starting Position</v-stepper-step>
+            <v-stepper-step :complete="e1 > 1" step="1">one</v-stepper-step>
             <v-divider></v-divider>
-            <v-stepper-step :complete="e1 > 2" step="2">Middle Position</v-stepper-step>
+            <v-stepper-step :complete="e1 > 2" step="2">two</v-stepper-step>
             <v-divider></v-divider>
-            <v-stepper-step :complete="e1 > 3" step="3">Middle Position</v-stepper-step>
+            <v-stepper-step :complete="e1 > 3" step="3">three</v-stepper-step>
           </v-stepper-header>
           <v-stepper-items>
             <v-stepper-content class="pa-2" step="1">
               <div id="step_btns">
-                <v-btn fab depressed outlined class="ma-2" @click="e1=2">
+                <v-btn disabled fab depressed outlined class="ma-2" @click="e1=2">
                   <v-icon>mdi-arrow-left</v-icon>
                 </v-btn>
                 <v-btn fab depressed outlined class="ma-2" @click="e1=2">
@@ -35,7 +35,7 @@
             </v-stepper-content>
             <v-stepper-content class="pa-2" step="2">
               <div id="step_btns">
-                <v-btn fab depressed outlined class="ma-2" @click="e1=3">
+                <v-btn fab depressed outlined class="ma-2" @click="e1=1">
                   <v-icon>mdi-arrow-left</v-icon>
                 </v-btn>
                 <v-btn fab depressed outlined class="ma-2" @click="e1=3">
@@ -46,7 +46,7 @@
             </v-stepper-content>
             <v-stepper-content class="pa-2" step="3">
               <div id="step_btns">
-                <v-btn fab depressed outlined class="ma-2" @click="e1=1">
+                <v-btn fab depressed outlined class="ma-2" @click="e1=2">
                   <v-icon>mdi-arrow-left</v-icon>
                 </v-btn>
                 <v-btn fab depressed outlined class="ma-2" @click="e1=1">
@@ -89,6 +89,5 @@ export default {
 #img_1 {
     width: 100vw;
     height: 100vh;
-    
 }
 </style>
