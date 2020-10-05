@@ -1,17 +1,14 @@
 <template>
-  <v-row no gutter>
+  <v-row no-gutters>
     <v-col offset-md="1" md="5">
       <h1 class="pa-2 ma-3">Leg Day</h1>
-
       <v-card class="pa-2 ma-3" height="600">
         <div class="ma-1">Leg day exercises:</div>
         <hr />
         <div id="exercise_container">
           <div id="exercise_btns" class="pa-4">
-            <v-btn color="accent" class="exe_btns pa-12" large>Squats</v-btn>
-            <v-btn color="accent" class="exe_btns pa-12" large
-              >Leg Extensions</v-btn
-            >
+            <v-btn color="accent" href="/squat" class="exe_btns pa-12" large>Squats</v-btn>
+            <v-btn color="accent" class="exe_btns pa-12" large>Leg Extension</v-btn>
             <v-btn color="accent" class="exe_btns pa-12" large>Deadlift</v-btn>
           </div>
         </div>

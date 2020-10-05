@@ -6,6 +6,7 @@ import Admin from '../views/Admin.vue'
 import AddNewItems from '../components/admin/AddNewItems.vue'
 import Login from '../components/admin/Login.vue'
 import Legs from '../views/Legs.vue'
+import squat from '../views/squat.vue'
 
 import firebase from 'firebase'
 import 'firebase/firestore'
@@ -63,6 +64,11 @@ const router = new VueRouter({
       path: '/Legs',
       name: 'Legs',
       component: Legs
+    },
+    {
+      path: '/squat',
+      name: 'squat',
+      component: squat
     },
   ],
 });
