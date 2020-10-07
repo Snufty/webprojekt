@@ -9,6 +9,11 @@
             required
             v-model="name"
           ></v-text-field>
+          <v-text-field
+            label="urlName"
+            required
+            v-model="urlName"
+          ></v-text-field>
           <v-btn color="success" class="mr-2" flat @click="addNewMenuItem()"
             >Add Item</v-btn
           >
@@ -54,6 +59,7 @@ export default {
       name: "",
       description: "",
       price: "",
+      urlName: "",
     };
   },
   methods: {
@@ -62,6 +68,7 @@ export default {
         name: this.name,
         description: this.description,
         price: this.price,
+        urlName: this.urlName,
       });
     },
   },

@@ -23,12 +23,25 @@
               <tbody>
                 <tr v-for="item in menuItems" :key="item.name">
                   <td>
-                    <span id="td_name">{{ item.name }}</span>
+                    <!-- <router-link v-bind:to="'/' + "> -->
+
+                    <router-link
+                      v-bind:to="{
+                        name: 'Legs',
+                        params: {
+                          userId: item.urlName,
+                          exerciseName: item.name,
+                        },
+                      }"
+                    >
+                      <span id="td_name">{{ item.name }}</span>
+                    </router-link>
                     <br />
                     <span id="menu_item_description">{{
                       item.description
                     }}</span>
                   </td>
+
                   <td>{{ item.price }}</td>
                   <td>
                     <v-btn text small @click="deleteItem(item.id)">
@@ -45,6 +58,13 @@
             <v-card-text>
               <div class="mb-3">Program Name</div>
               <hr />
+
+              <!--
+                <router-link :to="item.urlname">
+                <div class="mt-3 font-weight-bold">Legs</div></router-link
+              >
+               -->
+
               <router-link to="/Legs">
                 <div class="mt-3 font-weight-bold">Legs</div></router-link
               >
@@ -74,7 +94,9 @@ export default {
           name: menuItemData.name,
           description: menuItemData.description,
           price: menuItemData.price,
+          urlName: menuItemData.urlName,
         });
+        console.log("test", this.menuItems);
       });
     });
   },
@@ -201,7 +223,8 @@ tr td {
   font-size: 1.5em;
 }
 
-a {
+a,
+#menu_nav {
   text-decoration: none;
 }
 </style>
