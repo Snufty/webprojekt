@@ -9,10 +9,11 @@
             required
             v-model="name"
           ></v-text-field>
+          <v-text-field v-model="uuid" label="uuid" required></v-text-field>
           <v-text-field
-            label="urlName"
+            v-model="indi_exercise_name"
+            label="Your Exercise"
             required
-            v-model="urlName"
           ></v-text-field>
           <v-btn color="success" class="mr-2" flat @click="addNewMenuItem()"
             >Add Item</v-btn
@@ -57,18 +58,15 @@ export default {
   data() {
     return {
       name: "",
-      description: "",
-      price: "",
-      urlName: "",
+      uuid: "",
     };
   },
   methods: {
     addNewMenuItem() {
       dbMenuAdd.add({
         name: this.name,
-        description: this.description,
-        price: this.price,
-        urlName: this.urlName,
+        uuid: this.uuid,
+        indi_exercise_name: this.indi_exercise_name,
       });
     },
   },

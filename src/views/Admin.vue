@@ -27,10 +27,11 @@
 
                     <router-link
                       v-bind:to="{
-                        name: 'Legs',
+                        name: 'Exercise',
                         params: {
-                          userId: item.urlName,
+                          userId: item.uuid,
                           exerciseName: item.name,
+                          indi_exercise_name: item.indi_exercise_name,
                         },
                       }"
                     >
@@ -81,8 +82,8 @@ import { dbMenuAdd } from "../../firebase";
 export default {
   data() {
     return {
-      basket: [],
       menuItems: [],
+      uuid: "",
     };
   },
   created() {
@@ -117,38 +118,14 @@ export default {
         item = this.basket.find(
           (itemInArray) => item.name === itemInArray.name
         );
-        this.increaseQtn(item);
       } else {
         this.basket.push({
           name: item.name,
           price: item.price,
           quantity: 1,
+          uuid: item.uuid,
         });
       }
-    },
-    increaseQtn(item) {
-      item.quantity++;
-    },
-    decreaseQtn(item) {
-      item.quantity--;
-      if (item.quantity === 0) {
-        this.basket.splice(this.basket.indexOf(item), 1);
-      }
-    },
-  },
-  computed: {
-    subTotal() {
-      var subCost = 0;
-      for (var items in this.basket) {
-        var individualItem = this.basket[items];
-        subCost += individualItem.quantity * individualItem.price;
-      }
-      return subCost;
-    },
-    total() {
-      var deliveryPrice = 10;
-      var totalCost = this.subTotal;
-      return totalCost + deliveryPrice;
     },
   },
 };

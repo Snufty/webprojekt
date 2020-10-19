@@ -5,8 +5,9 @@ import Menu from '../views/Menu.vue'
 import Admin from '../views/Admin.vue'
 import AddNewItems from '../components/admin/AddNewItems.vue'
 import Login from '../components/admin/Login.vue'
-import Legs from '../views/Legs.vue'
-import squat from '../views/squat.vue'
+import Exercise from '../views/Exercise.vue'
+import Indi_exercise from '../views/Indi_exercise.vue'
+
 
 import firebase from 'firebase'
 import 'firebase/firestore'
@@ -47,9 +48,6 @@ const router = new VueRouter({
       path: '/AddNew',
       name: 'AddNew',
       component: AddNewItems,
-      meta: {
-        requiresAuth: true,
-      }
     },
     {
       path: '/Login',
@@ -61,14 +59,14 @@ const router = new VueRouter({
       redirect: '/',
     },
     {
-      path: '/Legs',
-      name: 'Legs',
-      component: Legs
+      path: '/Exercise/:uuid',
+      name: 'Exercise',
+      component: Exercise
     },
     {
-      path: '/squat',
-      name: 'squat',
-      component: squat
+      path: '/Indi_exercise',
+      name: 'Indi_exercise',
+      component: Indi_exercise
     },
   ],
 });

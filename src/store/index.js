@@ -6,12 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     basketItems: [
-      {
-        name: "Bagel",
-        description: "Stuff",
-        price: 159,
-        quantity: 1,
-      },
+
     ],
     currentUser: null
   },
@@ -24,12 +19,11 @@ export default new Vuex.Store({
             item = state.basketItems.find(
               (itemInArray) => item.name === itemInArray.name
             );
-            item.quantity++;
           } else {
             state.basketItems.push({
               name: item.name,
-              price: item.price,
-              quantity: 1,
+              uuid: item.uuid,
+              indi_exercise_name: item.indi_exercise_name,
             });
           }
         })
