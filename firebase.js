@@ -17,3 +17,4 @@ firebase.initializeApp(firebaseConfig);
 export const db = firebase.firestore();
 export const dbMenuAdd = db.collection('menuItems');
 export const dbExerciseAdd = db.collection('exercise');
+export const exercise = db.collection('exercise');

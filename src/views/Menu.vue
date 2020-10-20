@@ -8,9 +8,9 @@
             <template v-slot:default>
               <thead>
                 <tr>
-                  <th class="text-left" style="width:70%;">Name of item</th>
-                  <th class="text-left" style="width:100px;">Price</th>
-                  <th class="text-left" style="width:100px;">Add To Basket</th>
+                  <th class="text-left" style="width: 70%">Name of item</th>
+                  <th class="text-left" style="width: 100px">Price</th>
+                  <th class="text-left" style="width: 100px">Add To Basket</th>
                 </tr>
               </thead>
               <tbody>
@@ -18,7 +18,9 @@
                   <td>
                     <span id="td_name">{{ item.name }}</span>
                     <br />
-                    <span id="menu_item_description">{{ item.description }}</span>
+                    <span id="menu_item_description">{{
+                      item.description
+                    }}</span>
                   </td>
                   <td>{{ item.price }}</td>
                   <td>
@@ -39,17 +41,21 @@
             <template v-slot:default>
               <thead>
                 <tr>
-                  <th class="text-left" style="width:30%;">Quantity</th>
-                  <th class="text-left" style="width:50%;">Name of Item</th>
-                  <th class="text-left" style="width:20¤;">Price</th>
+                  <th class="text-left" style="width: 30%">Quantity</th>
+                  <th class="text-left" style="width: 50%">Name of Item</th>
+                  <th class="text-left" style="width: 20¤">Price</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="item in basket" :key="item.name">
                   <td>
-                    <v-icon color="orange" @click="increaseQtn(item)">add_box</v-icon>
-                    {{item.quantity}}
-                    <v-icon color="orange" @click="decreaseQtn(item)">indeterminate_check_box</v-icon>
+                    <v-icon color="orange" @click="increaseQtn(item)"
+                      >add_box</v-icon
+                    >
+                    {{ item.quantity }}
+                    <v-icon color="orange" @click="decreaseQtn(item)"
+                      >indeterminate_check_box</v-icon
+                    >
                   </td>
                   <td>{{ item.name }}</td>
                   <td>{{ item.price }}</td>
@@ -63,21 +69,21 @@
           </v-simple-table>
 
           <v-divider></v-divider>
-          <v-row id="backet_checkout" class="mt-4" style="margin:0">
+          <v-row id="backet_checkout" class="mt-4" style="margin: 0">
             <v-col>
               <p>Subtotal:</p>
               <p>Delivery:</p>
               <p>Total Amount:</p>
             </v-col>
             <v-col class="text-right">
-              <p>{{subTotal}} DKK</p>
+              <p>{{ subTotal }} DKK</p>
               <p>10 DKK</p>
               <p>
-                <b>{{total}} DKK</b>
+                <b>{{ total }} DKK</b>
               </p>
             </v-col>
           </v-row>
-          <v-row style="margin:0">
+          <v-row style="margin: 0">
             <v-spacer></v-spacer>
             <v-btn color="orange" class="pa-2 ma-1">Checkout</v-btn>
           </v-row>
@@ -149,33 +155,11 @@ export default {
       console.log("What is this", this.basketDump);
       this.basketDump = [];
     },
-    increaseQtn(item) {
-      item.quantity++;
-    },
-    decreaseQtn(item) {
-      item.quantity--;
-      if (item.quantity === 0) {
-        this.basket.splice(this.basket.indexOf(item), 1);
-      }
-    },
   },
   computed: {
     basket() {
       //return this.$store.state.basketItems;
       return this.$store.getters.getBasketItems;
-    },
-    subTotal() {
-      var subCost = 0;
-      for (var items in this.basket) {
-        var individualItem = this.basket[items];
-        subCost += individualItem.quantity * individualItem.price;
-      }
-      return subCost;
-    },
-    total() {
-      var deliveryPrice = 10;
-      var totalCost = this.subTotal;
-      return totalCost + deliveryPrice;
     },
   },
 };

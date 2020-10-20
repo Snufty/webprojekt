@@ -38,6 +38,8 @@
 </template>
 
 <script>
+/* import { exercise } from "../../firebase"; er det her rigtigt???*/
+
 export default {
   /* 
   "legs" er gemt i dette components pga din routing
@@ -50,8 +52,6 @@ example på filter.
 filterExercise() {
   return this.exerciseArray.filter(indiExercise => indiExercise.exercisecategory == "legs")
 }  
-
-
 */
   data() {
     return {
@@ -68,6 +68,7 @@ filterExercise() {
   },
 };
 </script>
+
 
 <style lang="scss">
 #exercise_container {
